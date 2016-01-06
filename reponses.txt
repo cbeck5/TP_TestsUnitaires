@@ -3,4 +3,4 @@ DAVID Nicolas DASI2
 
 Partie 2
 1.4) Passage d'un int, float ou double dans la fonction fait planter le programme, l'envoie d'une variable nulle (None) fait planter le programme
- 
+2.3) Pour un mot de passe de longueur N, on peux génerer 26^N mot de passe différents

@@ -4,24 +4,34 @@ def getNext(password):
     Série de tests exprimés en doctest
     >>> getNext('a')
     'b'
-    >>> getNext('z')
-    'ba'
     >>> getNext('bc')
     'bd'
+    >>> len(getNext('bc'))
+    2
+    >>> len(getNext('az'))
+    2
     """
-    pwd = list(password)  #1
+    nbrZ = 0
+    for lettre in password:
+        if lettre == 'z':
+            nbrZ = nbrZ + 1
+    pwd = list(password)  #1 Creation d'une liste nommée pwd, dont le premier element sera le string 'password'
     found = False
     i=len(pwd)-1
-
+    if(i + 1) == nbrZ:
+        raise ValueError('Valeur du mot de passe incorrect')
+        
     while not found:
         if pwd[i] < 'z':
-           pwd[i] = chr(ord(pwd[i])+1)  #2
+           pwd[i] = chr(ord(pwd[i])+1)  #2 Retourne le caractère ASCII de la lettre selectionnée, puis ajoute 1 et le reconvertit en caractère
            found = True             
         else:
            i = i-1
            pwd[i+1] = "a"
+           if(i == -1):
+               found = True
     
-    return ''.join(pwd) #3
+    return ''.join(pwd) #3 Colle tous les caractères de la liste ensemble, le séparateur est un caractère vide donc il n'y aura aucun caractère entre chaque lettre
 
 
 
@@ -29,7 +39,7 @@ def getNext(password):
 # Si vous ne voulez plus que les tests s'exécutent, commentez les deux lignes ci-dessous. 
 # Si vous préférez lancer vos tests à la main, commentez également les lignes, et utilisez "python -m doctest pass.py" en console. 
 if __name__ == "__main__":
-    #import doctest
-    #doctest.testmod()
-    r = getNext('.')
-    print(r)
+    import doctest
+    doctest.testmod()
+    #r = getNext('zzz')
+    #print(r)
