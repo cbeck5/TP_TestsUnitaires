@@ -32,14 +32,36 @@ def getNext(password):
                found = True
     
     return ''.join(pwd) #3 Colle tous les caractères de la liste ensemble, le séparateur est un caractère vide donc il n'y aura aucun caractère entre chaque lettre
+def hasSeries(password):
+    i = 0
+    lettreTest = ''
+    for lettre in password:
+       if i == 0:
+           lettreTest = lettre
+       elif i == 3:
+           return False
+           
+       if(lettreTest == lettre):
+           i = i + 1
+       else:
+            i = 0
+    return True
 
+def hasNoBadChar(password):
+    if 'o' in password or 'i' in password or 'l' in password:
+        return False
+    else:
+        return True
+
+def hasTwoPairs(password):
+    
 
 
 # Grâce à ce fragment de code, si vous exécutez ce fichier, les tests doctests seront exécutés également. 
 # Si vous ne voulez plus que les tests s'exécutent, commentez les deux lignes ci-dessous. 
 # Si vous préférez lancer vos tests à la main, commentez également les lignes, et utilisez "python -m doctest pass.py" en console. 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
-    #r = getNext('zzz')
-    #print(r)
+    #import doctest
+    #doctest.testmod()
+    r = hasNoBadChar('fdgdffi')
+    print(r)
