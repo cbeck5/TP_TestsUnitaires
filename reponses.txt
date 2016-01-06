@@ -1,1 +1,6 @@
 BECKRICH Caroline DASI2
+DAVID Nicolas DASI2
+
+Partie 2
+1.4) Passage d'un int, float ou double dans la fonction fait planter le programme, l'envoie d'une variable nulle (None) fait planter le programme
+ 

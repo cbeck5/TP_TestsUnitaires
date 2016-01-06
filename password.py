@@ -4,7 +4,7 @@ def getNext(password):
     Série de tests exprimés en doctest
     >>> getNext('a')
     'b'
-    >>> getNext('az')
+    >>> getNext('z')
     'ba'
     >>> getNext('bc')
     'bd'
@@ -18,7 +18,8 @@ def getNext(password):
            pwd[i] = chr(ord(pwd[i])+1)  #2
            found = True             
         else:
-           i = i-1 
+           i = i-1
+           pwd[i+1] = "a"
     
     return ''.join(pwd) #3
 
@@ -28,5 +29,7 @@ def getNext(password):
 # Si vous ne voulez plus que les tests s'exécutent, commentez les deux lignes ci-dessous. 
 # Si vous préférez lancer vos tests à la main, commentez également les lignes, et utilisez "python -m doctest pass.py" en console. 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
+    #import doctest
+    #doctest.testmod()
+    r = getNext('.')
+    print(r)

@@ -8,7 +8,7 @@ class TestPassword(unittest.TestCase):
         self.assertEqual(pwd.getNext("abcd"), "abce")
 
     def test_getNextEndLine(self):
-        self.assertEqual(pwd.getNext("abhz"), "abia")
+        self.assertEqual(pwd.getNext("abia"), "abia")
 
 
 # Permet d'exécuter les tests si ce fichier est exécuté
